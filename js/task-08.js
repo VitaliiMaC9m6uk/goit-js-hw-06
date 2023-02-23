@@ -13,7 +13,7 @@ function handleSubmit(event) {
     return alert("Please fill in all the fields!");
   }
 
-  console.log(`email: ${email.value}, password: ${password.value}`);
+  console.log({email: email.value, password: password.value});
   event.currentTarget.reset();
     // const formData = new FormData(event.currentTarget) 
     
@@ -24,5 +24,5 @@ function handleSubmit(event) {
     //     console.log( name, value);
        
     // })
-    
+    // `email: ${email.value}, password: ${password.value}`
 }

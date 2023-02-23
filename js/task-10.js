@@ -7,6 +7,7 @@ const destroyBtn = document.querySelector('[data-destroy]');
 const boxFild = document.querySelector('#boxes');
 const bufer = document.createElement('div');
 let valueInput = 0;
+let elements = [];
 
 inputField.addEventListener('input', event => {
   valueInput = Number(event.currentTarget.value);
@@ -17,15 +18,15 @@ inputField.addEventListener('input', event => {
 
 function addNewBox() {
   for (let i = 1; i <= valueInput; i += 1){
-    const newI = i * 10;
+    const newI = i * 10;    
     const boxEl = document.createElement('div');
     console.log(valueInput);
     boxEl.style.width = `${20 + newI}px`;
     boxEl.style.height = `${20 + newI}px`;
     boxEl.style.backgroundColor = getRandomHexColor();
-    boxFild.append(boxEl);
+    elements.push(boxEl);
   }
-  
+  return boxFild.append(...elements);
 }
 
 
@@ -33,4 +34,5 @@ function addNewBox() {
 createBtn.addEventListener('click', addNewBox);
 destroyBtn.addEventListener('click', () => {
   boxFild.innerHTML = '';
+  elements = [];
 })
